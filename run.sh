@@ -47,6 +47,7 @@ echo Applying terraform script...
 
 pushd /vagrant/terraform/
 cd /vagrant/terraform/environments/dev
+terraform workspace new dev || terraform workspace select dev
 terraform init -upgrade
 terraform apply  --var="host=$host" --var="cluster_cert=$clustercert" \
                 --var="client_cert=$clientcert" --var="client_key=$clientkey" -auto-approve
